@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+h5 {
+    font-size: calc(0.75rem + 1vw);
+}
+
+.page-container:dir(ltr) {
+    margin-left: calc(1rem + 1.5vw);
+}
+
+.page-container:dir(rtl) {
+    margin-right: calc(1rem + 1.5vw);
+}
+
+body {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body:dir(ltr) {
+    background-image: url('/assets/images/background.jpg');
+}
+
+body:dir(rtl) {
+    background-image: url('/assets/images/background-rtl.jpg');
+}
+
+.title-color {
+    color: #BF1363;
+}
+
+.accordion-button:dir(ltr) {
+    padding-right: 5%;
+}
+
+.accordion-button:dir(rtl) {
+    padding-left: 5%;
+}
+
+.input-group-text:dir(ltr) {
+    margin-left: calc(var(--bs-border-width) * -1);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group-text:dir(rtl) {
+    margin-right: calc(var(--bs-border-width) * -1);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-top-left-radius: var(--bs-border-radius);
+    border-bottom-left-radius: var(--bs-border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}

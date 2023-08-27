@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="row mb-2">
+        <label class="col-2">{{'SelectStock'| translate}}</label>
+        <div class="col-5">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="stockSelected">
+                <option *ngFor="let stock of stocksList" [ngValue]=stock>{{stock.name}}</option>
+            </select>
+        </div>
+        <div class="col-5" *ngIf="stockSelected">
+            <div class="input-group">
+                <input type="text" class="form-control"
+                    readonly [value]="!quantitySelected?stockSelected.price*1 :stockSelected.price*quantitySelected">
+                <span class="input-group-text">$</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-2">{{'Quantity' | translate}}</label>
+        <div class="col-5">
+            <input class="form-control" type="number" min="1" [(ngModel)]="quantitySelected" />
+        </div>
+    </div>
+    <div class="modal-footer justify-content-center mt-4">
+        <button type="button" class="btn btn-lg btn-danger-color" (click)="manageOrder(2)" [disabled]="!quantitySelected||!stockSelected">{{'Sell' | translate}}</button>
+        <button type="button" class="btn btn-lg btn-success-color" (click)="manageOrder(1)" [disabled]="!quantitySelected||!stockSelected">{{'Buy' | translate}}</button>
+    </div>

@@ -1,0 +1,23 @@
+{
+    "Home":"Home",
+    "Features":"Features",
+    "Pricing":"Pricing",
+    "FAQs":"FAQs",
+    "About":"About",
+    "Company":"Company",
+    "Stocks":"Stocks",
+    "Orders":"Orders",
+    "SelectStock":"Select Stock",
+    "Quantity":"Quantity",
+    "Sell":"Sell",
+    "Buy":"Buy",
+    "OrdersHistory":"Orders History",
+    "BuySellStock":"Buy/Sell Stock",
+    "PersonName":"Person Name",
+    "StockName":"Stock Name",
+    "Cost":"Cost",
+    "Process":"Process",
+    "Prev":"Prev",
+    "Next":"Next",
+    "Search":"Search"
+}

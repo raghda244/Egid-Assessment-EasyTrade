@@ -1,0 +1,51 @@
+<div class="page-container">
+    <div class="d-flex flex-row">
+        <h1 class="my-5 col-4 title-color"><strong>{{'Stocks' | translate}}</strong></h1>
+        <div class="col-4 align-middle my-auto">
+            <form class="d-flex flex-row" role="search" data-bs-theme="light">
+                <input [(ngModel)]="searchTxt"
+                    [ngClass]="currentLang==='en'?'form-control me-2 border border-black':'form-control ms-2 border border-black'"
+                    name="search" type="search" [placeholder]="'Search' | translate" aria-label="Search"
+                    (keyup)="filterStocks()">
+            </form>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="col-8 bg-white shadow-lg rounded">
+            <ngb-accordion [closeOthers]="true" class="border border-0">
+                <ngb-panel *ngFor="let stock of stocksList | paginate
+                : {
+                    itemsPerPage: 6,
+                    currentPage: page,
+                    totalItems: stocksList.length
+                  }; let i = index">
+                    <ng-template ngbPanelTitle>
+                        <div class="d-flex w-100 justify-content-between col-12">
+                            <div class="d-flex flex-column">
+                                <h5 class="fw-semibold stock-name fs-4">{{stock.name}}</h5>
+                            </div>
+                            <div [ngClass]="currentLang==='en'?'flex-end me-2':'flex-end ms-2'">
+                                <strong [ngClass]="currentLang==='en'?'pe-2':'ps-2'">{{stock.price}}$</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#BF1363"
+                                    class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <p class="text-secondary stock-desc">{{stock?.description}}</p>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+            <div class="d-flex flex-stack flex-wrap mt-5 justify-content-end">
+                <div class="d-flex justify-content-center mb-3">
+                    <pagination-controls [previousLabel]="'Prev' | translate" [nextLabel]="'Next' | translate"
+                        (pageChange)="onListDataChange($event)">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

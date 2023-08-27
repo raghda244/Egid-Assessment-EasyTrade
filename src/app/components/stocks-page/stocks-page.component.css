@@ -1,0 +1,15 @@
+.height-handle{
+    height: 40vw;
+}
+.current {
+    background: #231E23;
+}
+.stock-name{
+    color: #39A6A3;
+}
+.stock-desc:dir(ltr){
+    text-align: start;
+}
+.stock-desc:dir(rtl){
+    text-align: end;
+}

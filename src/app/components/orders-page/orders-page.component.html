@@ -1,0 +1,52 @@
+<div class="container shadow-lg rounded p-5 my-5 bg-white">
+    <div class="d-flex flex-row">
+        <h1 class="mb-2 mt-1 col-4 title-color"><strong>{{'OrdersHistory' | translate}}</strong></h1>
+    </div>
+    <div class="d-flex col-12 justify-content-between mt-5">
+        <div class="col-4">
+            <input class="form-control border border-black" type="search" [(ngModel)]="searchTxt" (keyup)="search()"
+                [placeholder]="'Search' | translate"  />
+        </div>
+        <button class="btn btn-color" type="button" (click)="openModal()">{{'BuySellStock'|translate}}</button>
+    </div>
+    <div [ngClass]="currentLang==='en'?'me-5':'ms-5'">
+        <table class="table table-hover mt-5">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col" class="header-color">{{'PersonName' | translate}}</th>
+                    <th scope="col" class="header-color">{{'StockName' | translate}}</th>
+                    <th scope="col" class="header-color">{{'Cost'| translate}}</th>
+                    <th scope="col" class="header-color">{{'Quantity' | translate}}</th>
+                    <th scope="col" class="header-color">{{'Process' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of ordersList  | paginate
+                : {
+                    itemsPerPage: 10,
+                    currentPage: page,
+                    totalItems: ordersList.length
+                  };" class="text-center">
+                    <td scope="row">{{ order.personName }}</td>
+                    <td>{{ getStockName(order.stockId)}}</td>
+                    <td>{{ order.price}}$</td>
+                    <td>{{ order.quantity }}</td>
+                    <td><span
+                            [ngClass]="order.type==1?'badge badge-success-color':'badge badge-danger-color'">{{order.type==2?('Sell'|
+                            translate):('Buy'|translate)}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--begin::Pagination-->
+        <div class="d-flex flex-stack flex-wrap mt-5 justify-content-end">
+            <!--begin::Pages-->
+            <div class="d-flex justify-content-center mb-3">
+                <pagination-controls [previousLabel]="'Prev' | translate" [nextLabel]="'Next' | translate" (pageChange)="onListDataChange($event)">
+                </pagination-controls>
+            </div>
+        </div>
+        <!--end::Pagination-->
+    </div>
+</div>

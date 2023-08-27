@@ -1,0 +1,23 @@
+{
+    "Home":"الصفحة الرئيسية",
+    "Features":"الخصائص",
+    "Pricing":"التسعيير",
+    "FAQs":"الأسئلة الشائعة",
+    "About":"من نحن",
+    "Company":"شركة",
+    "Stocks":"الأسهم",
+    "Orders":"الطلبات",
+    "SelectStock":"اختر سهم",
+    "Quantity":"الكمية",
+    "Sell":"بيع",
+    "Buy":"شراء",
+    "OrdersHistory":"سجل الطلبات",
+    "BuySellStock":"بيع/شراء سهم",
+    "PersonName":"اسم المشتري",
+    "StockName":"اسم السهم",
+    "Cost":"المبلغ",
+    "Process":"العملية",
+    "Prev":"السابق",
+    "Next":"التالي",
+    "Search":"بحث"
+}

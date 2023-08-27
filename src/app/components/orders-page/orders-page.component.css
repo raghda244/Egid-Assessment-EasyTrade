@@ -1,0 +1,18 @@
+.btn-color{
+    background-color: #231E23;
+    color: white;
+}
+.current {
+    background: #230746;
+}
+.badge-success-color{
+    color: #39A6A3;
+    font-weight: bolder;
+}
+.badge-danger-color{
+    color: #BF1363;
+    font-weight: bolder;
+}
+.header-color{
+    color: #39A6A3;
+}
